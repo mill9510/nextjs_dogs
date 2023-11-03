@@ -10,7 +10,7 @@ export default function Menu() {
           </Link>
         </li>
         <li>
-          <Link href={"/henry"} prefetch={false}>
+          <Link href={"/old-henry"} prefetch={false}>
             Henry
           </Link>
         </li>
