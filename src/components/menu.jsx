@@ -1,6 +1,8 @@
 import Link from "next/link";
 
-export default function Menu() {
+export default async function Menu() {
+  const res = await fetch("https://nice-dogs.vercel.app/api/dogs");
+  const pages = await res.json();
   return (
     <nav>
       <ul>
@@ -9,11 +11,14 @@ export default function Menu() {
             Home
           </Link>
         </li>
-        <li>
-          <Link href={"/old-henry"} prefetch={false}>
-            Henry
-          </Link>
-        </li>
+
+        {pages.map((page) => {
+          return (
+            <li key={page.id}>
+              <Link href={`/dogs/${page.slug}`}>{page.name}</Link>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 //gør dette til en statisk page
 export async function generateStaticParams() {
-  const res = await fetch("https://nice-dogs.vercel.app/api/dogs?");
+  const res = await fetch("https://nice-dogs.vercel.app/api/dogs");
   const pages = await res.json();
 
   const paths = pages.map((page) => {
